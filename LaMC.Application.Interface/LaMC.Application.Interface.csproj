@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LaMC.Application.DTO\LaMC.Application.DTO.csproj" />
+    <ProjectReference Include="..\LaMC.Domain.Entity\LaMC.Domain.Entity.csproj" />
+    <ProjectReference Include="..\LaMC.Transversal.Common\LaMC.Transversal.Common.csproj" />
+  </ItemGroup>
+
+</Project>

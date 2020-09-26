@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LaMC.Application.Interface\LaMC.Application.Interface.csproj" />
+    <ProjectReference Include="..\LaMC.Application.Main\LaMC.Application.Main.csproj" />
+    <ProjectReference Include="..\LaMC.Domain.Core\LaMC.Domain.Core.csproj" />
+    <ProjectReference Include="..\LaMC.Domain.Entity\LaMC.Domain.Entity.csproj" />
+    <ProjectReference Include="..\LaMC.Domain.Interface\LaMC.Domain.Interface.csproj" />
+    <ProjectReference Include="..\LaMC.InfraStructure.Data\LaMC.InfraStructure.Data.csproj" />
+    <ProjectReference Include="..\LaMC.InfraStructure.Interface\LaMC.InfraStructure.Interface.csproj" />
+    <ProjectReference Include="..\LaMC.InfraStructure.Repository\LaMC.InfraStructure.Repository.csproj" />
+    <ProjectReference Include="..\LaMC.Transversal.Logging\LaMC.Transversal.Logging.csproj" />
+    <ProjectReference Include="..\LaMC.Transversal.Mapper\LaMC.Transversal.Mapper.csproj" />
+  </ItemGroup>
+
+
+</Project>
