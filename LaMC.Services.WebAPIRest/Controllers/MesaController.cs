@@ -37,6 +37,7 @@ namespace LaMC.Services.WebAPIRest.Controllers
                     return BadRequest();
 
                 response = await _MesaApplication.InsertAsync(model);
+
                 if (response.IsSuccess)
                 {
                     return Ok(response);
@@ -56,7 +57,7 @@ namespace LaMC.Services.WebAPIRest.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> UpdateAsync(MesaDTO model)
         {
             Response<string> response = new Response<string>();

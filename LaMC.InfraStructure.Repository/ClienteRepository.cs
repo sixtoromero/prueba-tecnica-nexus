@@ -60,7 +60,7 @@ namespace LaMC.InfraStructure.Repository
         {
             using (var connection = _connectionFactory.GetConnection)
             {
-                var query = "uspMesaDelete";
+                var query = "uspClienteDelete";
                 var parameters = new DynamicParameters();
 
                 parameters.Add("IdCliente", Id);

@@ -56,7 +56,7 @@ namespace LaMC.Services.WebAPIRest.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> UpdateAsync(FacturaDTO model)
         {
             Response<string> response = new Response<string>();

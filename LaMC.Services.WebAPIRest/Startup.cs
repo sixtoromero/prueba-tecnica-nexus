@@ -88,6 +88,10 @@ namespace LaMC.Services.WebAPIRest
             services.AddScoped<IFacturaDomain, FacturaDomain>();
             services.AddScoped<IFacturaRepository, FacturaRepository>();
 
+            services.AddScoped<IViewFacturaApplication, ViewFacturaApplication>();
+            services.AddScoped<IViewFacturaDomain, ViewFacturaDomain>();
+            services.AddScoped<IViewFacturaRepository, ViewFacturaRepository>();
+
             #endregion
             services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
 

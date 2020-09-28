@@ -56,7 +56,7 @@ namespace LaMC.Services.WebAPIRest.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> UpdateAsync(ClienteDTO model)
         {
             Response<string> response = new Response<string>();
