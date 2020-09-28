@@ -24,5 +24,9 @@
     <ProjectReference Include="..\LaMC.Transversal.Mapper\LaMC.Transversal.Mapper.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="src\img\" />
+  </ItemGroup>
+
 
 </Project>

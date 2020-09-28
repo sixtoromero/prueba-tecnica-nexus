@@ -15,31 +15,36 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{07
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transversal", "Transversal", "{E11B87F0-E3BB-49BB-A9AC-8579BDFAB6C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMC.InfraStructure.Data", "LaMC.InfraStructure.Data\LaMC.InfraStructure.Data.csproj", "{A2E4E8E0-20EE-499B-8E71-F405470DE62C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMC.InfraStructure.Data", "LaMC.InfraStructure.Data\LaMC.InfraStructure.Data.csproj", "{A2E4E8E0-20EE-499B-8E71-F405470DE62C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMC.Transversal.Common", "LaMC.Transversal.Common\LaMC.Transversal.Common.csproj", "{BDBA3C3F-F645-4D60-8D13-3FE712139386}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMC.Transversal.Common", "LaMC.Transversal.Common\LaMC.Transversal.Common.csproj", "{BDBA3C3F-F645-4D60-8D13-3FE712139386}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMC.Transversal.Logging", "LaMC.Transversal.Logging\LaMC.Transversal.Logging.csproj", "{FC22FD02-DCF9-4082-A1DD-694E838380DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMC.Transversal.Logging", "LaMC.Transversal.Logging\LaMC.Transversal.Logging.csproj", "{FC22FD02-DCF9-4082-A1DD-694E838380DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMC.Transversal.Mapper", "LaMC.Transversal.Mapper\LaMC.Transversal.Mapper.csproj", "{ACC0A6FC-F530-4E4C-BF15-0B88CCB4F1DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMC.Transversal.Mapper", "LaMC.Transversal.Mapper\LaMC.Transversal.Mapper.csproj", "{ACC0A6FC-F530-4E4C-BF15-0B88CCB4F1DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMC.InfraStructure.Interface", "LaMC.InfraStructure.Interface\LaMC.InfraStructure.Interface.csproj", "{332FD081-7141-445B-8902-D73D914F42BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMC.InfraStructure.Interface", "LaMC.InfraStructure.Interface\LaMC.InfraStructure.Interface.csproj", "{332FD081-7141-445B-8902-D73D914F42BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMC.Domain.Entity", "LaMC.Domain.Entity\LaMC.Domain.Entity.csproj", "{A7923E38-3C33-410F-A61B-7D5C7C8D9CBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMC.Domain.Entity", "LaMC.Domain.Entity\LaMC.Domain.Entity.csproj", "{A7923E38-3C33-410F-A61B-7D5C7C8D9CBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMC.InfraStructure.Repository", "LaMC.InfraStructure.Repository\LaMC.InfraStructure.Repository.csproj", "{B834C9E9-00FE-40FD-B4FA-F02F0083EA58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMC.InfraStructure.Repository", "LaMC.InfraStructure.Repository\LaMC.InfraStructure.Repository.csproj", "{B834C9E9-00FE-40FD-B4FA-F02F0083EA58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMC.Domain.Core", "LaMC.Domain.Core\LaMC.Domain.Core.csproj", "{CB43985E-3BE2-4187-8FFC-1C10BEF3181C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMC.Domain.Core", "LaMC.Domain.Core\LaMC.Domain.Core.csproj", "{CB43985E-3BE2-4187-8FFC-1C10BEF3181C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMC.Domain.Interface", "LaMC.Domain.Interface\LaMC.Domain.Interface.csproj", "{089143AC-A058-46B5-9C2D-AAF022AC07F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMC.Domain.Interface", "LaMC.Domain.Interface\LaMC.Domain.Interface.csproj", "{089143AC-A058-46B5-9C2D-AAF022AC07F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMC.Application.Interface", "LaMC.Application.Interface\LaMC.Application.Interface.csproj", "{B8B8A861-D231-4EF8-98E7-33AE70B0A5FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMC.Application.Interface", "LaMC.Application.Interface\LaMC.Application.Interface.csproj", "{B8B8A861-D231-4EF8-98E7-33AE70B0A5FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMC.Application.DTO", "LaMC.Application.DTO\LaMC.Application.DTO.csproj", "{CDE1A793-BC5C-4DFF-ABD7-6B93E4B6BBC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMC.Application.DTO", "LaMC.Application.DTO\LaMC.Application.DTO.csproj", "{CDE1A793-BC5C-4DFF-ABD7-6B93E4B6BBC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMC.Application.Main", "LaMC.Application.Main\LaMC.Application.Main.csproj", "{7556099E-CB5D-4D9E-9460-B99A071998BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMC.Application.Main", "LaMC.Application.Main\LaMC.Application.Main.csproj", "{7556099E-CB5D-4D9E-9460-B99A071998BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMC.Services.WebAPIRest", "LaMC.Services.WebAPIRest\LaMC.Services.WebAPIRest.csproj", "{D135B35F-5353-4970-AB6E-D48983C37025}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMC.Services.WebAPIRest", "LaMC.Services.WebAPIRest\LaMC.Services.WebAPIRest.csproj", "{D135B35F-5353-4970-AB6E-D48983C37025}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{648E11E6-D270-45A8-80C4-6B5536DCE239}"
+	ProjectSection(SolutionItems) = preProject
+		Scripts\BDscript.sql = Scripts\BDscript.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
