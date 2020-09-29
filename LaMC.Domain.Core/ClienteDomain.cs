@@ -44,5 +44,10 @@ namespace LaMC.Domain.Core
         {
             return await _Repository.GetAsync(Id);
         }
+
+        public async Task<IEnumerable<Cliente>> GetClientesMayorCompra()
+        {
+            return await _Repository.GetClientesMayorCompra();
+        }
     }
 }

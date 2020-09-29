@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace LaMC.Domain.Interface
 {
     public interface IClienteDomain : IDomain<Cliente>
     {
-
+        Task<IEnumerable<Cliente>> GetClientesMayorCompra();
     }
 }

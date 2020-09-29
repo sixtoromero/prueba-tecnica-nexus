@@ -30,5 +30,10 @@ namespace LaMC.Domain.Core
         {
             return await _Repository.getListFacturaByFecha(FechaInicio, FechaFin);
         }
+
+        public async Task<IEnumerable<TotalesByCamarero>> getTotalesporCamarero()
+        {
+            return await _Repository.getTotalesporCamarero();
+        }
     }
 }

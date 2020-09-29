@@ -78,6 +78,33 @@ namespace LaMC.Application.Main
             return response;
         }
 
+        public async Task<Response<IEnumerable<TotalesByCamareroDTO>>> getTotalesporCamarero()
+        {
+            var response = new Response<IEnumerable<TotalesByCamareroDTO>>();
+            try
+            {
+                var resp = await _Domain.getTotalesporCamarero();
+
+                response.Data = _mapper.Map<IEnumerable<TotalesByCamareroDTO>>(resp);
+                if (response.Data != null)
+                {
+                    response.IsSuccess = true;
+                    response.Message = string.Empty;
+                }
+                else
+                {
+                    response.IsSuccess = false;
+                    response.Message = "Ha ocurrido un error consultando los registros.";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+            }
+
+            return response;
+        }
+
 
     }
 }

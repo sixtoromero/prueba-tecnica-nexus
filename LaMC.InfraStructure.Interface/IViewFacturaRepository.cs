@@ -9,5 +9,7 @@ namespace LaMC.InfraStructure.Interface
     {
         Task<IEnumerable<ViewFactura>> getListFactura();
         Task<IEnumerable<ViewFactura>> getListFacturaByFecha(DateTime FechaInicio, DateTime FechaFin);
+        Task<IEnumerable<TotalesByCamarero>> getTotalesporCamarero();
+
     }
 }

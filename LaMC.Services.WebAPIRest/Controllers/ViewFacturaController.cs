@@ -79,5 +79,32 @@ namespace LaMC.Services.WebAPIRest.Controllers
                 return BadRequest(response);
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetTotalesporCamarero()
+        {
+            Response<IEnumerable<TotalesByCamareroDTO>> response = new Response<IEnumerable<TotalesByCamareroDTO>>();
+
+            try
+            {
+                response = await _Application.getTotalesporCamarero();
+                if (response.IsSuccess)
+                {
+                    return Ok(response);
+                }
+                else
+                {
+                    return BadRequest(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Data = null;
+                response.IsSuccess = false;
+                response.Message = ex.Message;
+
+                return BadRequest(response);
+            }
+        }
     }
 }

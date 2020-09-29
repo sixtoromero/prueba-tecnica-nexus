@@ -95,5 +95,16 @@ namespace LaMC.InfraStructure.Repository
                 return result;
             }
         }
+
+        public async Task<IEnumerable<Cliente>> GetClientesMayorCompra()
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "UspGetClientesMayorCompra";
+                var result = await connection.QueryAsync<Cliente>(query, commandType: CommandType.StoredProcedure);
+
+                return result;
+            }
+        }
     }
 }

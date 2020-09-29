@@ -169,5 +169,32 @@ namespace LaMC.Services.WebAPIRest.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetClientesMayorCompra()
+        {
+            Response<IEnumerable<ClienteDTO>> response = new Response<IEnumerable<ClienteDTO>>();
+
+            try
+            {
+                response = await _clienteApplication.GetClientesMayorCompra();
+                if (response.IsSuccess)
+                {
+                    return Ok(response);
+                }
+                else
+                {
+                    return BadRequest(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Data = null;
+                response.IsSuccess = false;
+                response.Message = ex.Message;
+
+                return BadRequest(response);
+            }
+        }
+
     }
 }

@@ -10,5 +10,6 @@ namespace LaMC.Application.Interface
     {
         Task<Response<IEnumerable<ViewFacturaDTO>>> getListFactura();
         Task<Response<IEnumerable<ViewFacturaDTO>>> getListFacturaByFecha(DateTime FechaInicio, DateTime FechaFin);
+        Task<Response<IEnumerable<TotalesByCamareroDTO>>> getTotalesporCamarero();
     }
 }

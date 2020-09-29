@@ -18,6 +18,7 @@ namespace LaMC.Transversal.Mapper
             CreateMap<Factura, FacturaDTO>().ReverseMap();
             CreateMap<Mesa, MesaDTO>().ReverseMap();
             CreateMap<ViewFactura, ViewFacturaDTO>().ReverseMap();
+            CreateMap<TotalesByCamarero, TotalesByCamareroDTO>().ReverseMap();
         }
     }
 }

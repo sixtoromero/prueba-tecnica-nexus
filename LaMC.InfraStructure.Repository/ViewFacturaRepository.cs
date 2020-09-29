@@ -38,7 +38,17 @@ namespace LaMC.InfraStructure.Repository
                 parameters.Add("FechaInicio", FechaInicio);
                 parameters.Add("FechaFin", FechaFin);
 
-                var result = await connection.QueryAsync<ViewFactura>(query, commandType: CommandType.StoredProcedure);
+                var result = await connection.QueryAsync<ViewFactura>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                return result;
+            }
+        }
+
+        public async Task<IEnumerable<TotalesByCamarero>> getTotalesporCamarero()
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "UspGetTotalesporCamarero";                
+                var result = await connection.QueryAsync<TotalesByCamarero>(query, commandType: CommandType.StoredProcedure);
                 return result;
             }
         }
