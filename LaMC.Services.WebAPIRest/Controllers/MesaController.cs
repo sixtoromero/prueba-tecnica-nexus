@@ -74,7 +74,7 @@ namespace LaMC.Services.WebAPIRest.Controllers
                 }
                 else
                 {
-                    return BadRequest(response.Message);
+                    return BadRequest(response);
                 }
             }
             catch (Exception ex)
@@ -103,7 +103,7 @@ namespace LaMC.Services.WebAPIRest.Controllers
                 }
                 else
                 {
-                    return BadRequest(response.Message);
+                    return BadRequest(response);
                 }
             }
             catch (Exception ex)
