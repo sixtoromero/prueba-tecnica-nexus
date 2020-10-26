@@ -14,7 +14,6 @@ using Microsoft.Extensions.Logging;
 using AutoMapper;
 using System.Reflection;
 using Newtonsoft.Json.Serialization;
-using LaMC.Services.WebAPIRest.Helpers;
 using LaMC.Transversal.Common;
 using LaMC.Transversal.Logging;
 using LaMC.Application.Interface;
@@ -24,6 +23,9 @@ using LaMC.Domain.Core;
 using LaMC.InfraStructure.Interface;
 using LaMC.InfraStructure.Repository;
 using LaMC.InfraStructure.Data;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace LaMC.Services.WebAPIRest
 {
@@ -88,16 +90,44 @@ namespace LaMC.Services.WebAPIRest
             services.AddScoped<IFacturaDomain, FacturaDomain>();
             services.AddScoped<IFacturaRepository, FacturaRepository>();
 
+            services.AddScoped<IUsuarioApplication, UsuarioApplication>();
+            services.AddScoped<IUsuarioDomain, UsuarioDomain>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
             services.AddScoped<IViewFacturaApplication, ViewFacturaApplication>();
             services.AddScoped<IViewFacturaDomain, ViewFacturaDomain>();
             services.AddScoped<IViewFacturaRepository, ViewFacturaRepository>();
 
+
+
             #endregion
             services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
 
-
             services.AddControllers();
 
+            var appSettingsSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+
+            //jwt
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            var llave = Encoding.ASCII.GetBytes(appSettings.Secret);
+
+            services.AddAuthentication(d =>
+            {
+                d.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                d.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(d =>
+            {
+                d.RequireHttpsMetadata = false;
+                d.SaveToken = true;
+                d.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(llave),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
 
         }
 

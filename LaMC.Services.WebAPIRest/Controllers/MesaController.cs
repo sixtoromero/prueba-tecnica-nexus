@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using LaMC.Application.DTO;
 using LaMC.Application.Interface;
-using LaMC.Services.WebAPIRest.Helpers;
 using LaMC.Transversal.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

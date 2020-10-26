@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace LaMC.Services.WebAPIRest.Helpers
+namespace LaMC.Transversal.Common
 {
     public class AppSettings
     {

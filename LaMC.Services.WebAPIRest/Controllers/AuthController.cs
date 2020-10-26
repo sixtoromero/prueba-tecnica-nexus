@@ -4,38 +4,43 @@ using System.Linq;
 using System.Threading.Tasks;
 using LaMC.Application.DTO;
 using LaMC.Application.Interface;
+using LaMC.Services.WebAPIRest.Helpers;
 using LaMC.Transversal.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
+
 namespace LaMC.Services.WebAPIRest.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class ClienteController : Controller
+    public class AuthController : ControllerBase
     {
-        private readonly IClienteApplication _clienteApplication;
+        private readonly IUsuarioApplication _Application;
         private readonly AppSettings _appSettings;
 
-        public ClienteController(IClienteApplication clienteApplication,
+        public AuthController(IUsuarioApplication Application,
                                   IOptions<AppSettings> appSettings)
         {
-            _clienteApplication = clienteApplication;
+            _Application = Application;
             _appSettings = appSettings.Value;
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertAsync(ClienteDTO model)
+        public async Task<IActionResult> InsertAsync(UsuarioDTO model)
         {
             Response<string> response = new Response<string>();
 
             try
             {
+                string password = Encrypt.GetSHA256(model.Clave);
+                model.Clave = password;
+
                 if (model == null)
                     return BadRequest();
 
-                response = await _clienteApplication.InsertAsync(model);
+                response = await _Application.InsertAsync(model);
                 if (response.IsSuccess)
                 {
                     return Ok(response);
@@ -56,7 +61,7 @@ namespace LaMC.Services.WebAPIRest.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateAsync(ClienteDTO model)
+        public async Task<IActionResult> UpdateAsync(UsuarioDTO model)
         {
             Response<string> response = new Response<string>();
 
@@ -65,7 +70,10 @@ namespace LaMC.Services.WebAPIRest.Controllers
                 if (model == null)
                     return BadRequest();
 
-                response = await _clienteApplication.UpdateAsync(model);
+                string password = Encrypt.GetSHA256(model.Clave);
+                model.Clave = password;
+
+                response = await _Application.UpdateAsync(model);
                 if (response.IsSuccess)
                 {
                     return Ok(response);
@@ -83,72 +91,18 @@ namespace LaMC.Services.WebAPIRest.Controllers
 
                 return BadRequest(response);
             }
-            
+
         }
 
-        [HttpDelete("{IdCliente}")]
-        public async Task<IActionResult> DeleteAsync(int IdCliente)
+        [HttpDelete("{IdUsuario}")]
+        public async Task<IActionResult> DeleteAsync(int IdUsuario)
         {
             Response<string> response = new Response<string>();
 
             try
             {
-                response = await _clienteApplication.DeleteAsync(IdCliente);
+                response = await _Application.DeleteAsync(IdUsuario);
 
-                if (response.IsSuccess)
-                {
-                    return Ok(response);
-                }
-                else
-                {
-                    return BadRequest(response);
-                }
-            }
-            catch (Exception ex)
-            {
-                response.Data = null;
-                response.IsSuccess = false;
-                response.Message = ex.Message;
-
-                return BadRequest(response);
-            }            
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetAllAsync()
-        {
-            Response<IEnumerable<ClienteDTO>> response = new Response<IEnumerable<ClienteDTO>>();
-
-            try
-            {
-                response = await _clienteApplication.GetAllAsync();
-                if (response.IsSuccess)
-                {
-                    return Ok(response);
-                }
-                else
-                {
-                    return BadRequest(response);
-                }
-            }
-            catch (Exception ex)
-            {
-                response.Data = null;
-                response.IsSuccess = false;
-                response.Message = ex.Message;
-
-                return BadRequest(response);
-            }
-        }
-
-        [HttpGet("{IdCliente}")]
-        public async Task<IActionResult> GetAsync(int IdCliente)
-        {
-            Response<ClienteDTO> response = new Response<ClienteDTO>();
-
-            try
-            {
-                response = await _clienteApplication.GetAsync(IdCliente);
                 if (response.IsSuccess)
                 {
                     return Ok(response);
@@ -169,15 +123,77 @@ namespace LaMC.Services.WebAPIRest.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetClientesMayorCompra()
+        public async Task<IActionResult> GetAllAsync()
         {
-            Response<IEnumerable<ClienteDTO>> response = new Response<IEnumerable<ClienteDTO>>();
+            Response<IEnumerable<UsuarioDTO>> response = new Response<IEnumerable<UsuarioDTO>>();
 
             try
             {
-                response = await _clienteApplication.GetClientesMayorCompra();
+                response = await _Application.GetAllAsync();
                 if (response.IsSuccess)
                 {
+                    return Ok(response);
+                }
+                else
+                {
+                    return BadRequest(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Data = null;
+                response.IsSuccess = false;
+                response.Message = ex.Message;
+
+                return BadRequest(response);
+            }
+        }
+
+        [HttpGet("{IdUsuario}")]
+        public async Task<IActionResult> GetAsync(int IdUsuario)
+        {
+            Response<UsuarioDTO> response = new Response<UsuarioDTO>();
+
+            try
+            {
+                response = await _Application.GetAsync(IdUsuario);
+                if (response.IsSuccess)
+                {
+                    return Ok(response);
+                }
+                else
+                {
+                    return BadRequest(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Data = null;
+                response.IsSuccess = false;
+                response.Message = ex.Message;
+
+                return BadRequest(response);
+            }
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> getLogin(UsuarioDTO model)
+        {
+            Response<UsuarioDTO> response = new Response<UsuarioDTO>();
+            Token token = new Token();
+
+            try
+            {
+                string password = Encrypt.GetSHA256(model.Clave);
+                model.Clave = password;
+
+                if (model == null)
+                    return BadRequest();
+
+                response = await _Application.getLogin(model);
+                if (response.IsSuccess)
+                {
+                    response.Data.Token = token.GetToken(response.Data, _appSettings);
                     return Ok(response);
                 }
                 else
